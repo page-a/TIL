@@ -1,9 +1,14 @@
+### jupyter ##
+MyCode/.ipynb_checkpoints/
+
+### vscode ###
+.vscode/
+
 ### Data ###
 Data/
 
 ### venv ###
 TIL/
 
-### vscode ###
-.vscode/
+
 
