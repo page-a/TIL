@@ -6,8 +6,26 @@ from collections import Counter
 from pathlib import Path
 import argparse
 
+# #%%
+# review = pd.read_excel('../Data/From_konan/navershopping.review.3rd.xlsx')
+# review.head(3)
+# #%%
+# product_list=list(review['product'].unique())
+# # array(['과자', '립케어', '아이케어', '라면'], dtype=object)
 
+# snack_df=review.loc[review['product'] == product_list[0]]
+# lip_df=review.loc[review['product'] == product_list[1]]
+# eye_df=review.loc[review['product'] == product_list[2]]
+# ramen_df=review.loc[review['product'] == product_list[3]]
+# lip_df.head()
 
+# #%%
+# snack_df.to_csv('../Data/snack_df.csv',index=False)
+# lip_df.to_csv('../Data/lip_df.csv',index=False)
+# eye_df.to_csv('../Data/eye_df.csv',index=False)
+# ramen_df.to_csv('../Data/ramen_df.csv',index=False)
+
+#%%
 # FILE_PATH=args.FILE_PATH
 # EXPORT_PATH=args.EXPORT_PATH
 # FREQ_N=args.FREQ_N
@@ -47,6 +65,9 @@ def f0001(FILE_PATH, EXPORT_PATH, FREQ_N=200):
 # count_200=f0001('../Data/BabyProducts/MilkPowder/분유.csv'
 #                 ,'../Data/BabyProducts/MilkPowder/_분유_count.xlsx'
 #                 ,200)
+
+
+ 
 
 
 if __name__ == '__main__':
