@@ -6,36 +6,15 @@ from collections import Counter
 from pathlib import Path
 import argparse
 
-# #%%
-# review = pd.read_excel('../Data/From_konan/navershopping.review.3rd.xlsx')
-# review.head(3)
-# #%%
-# product_list=list(review['product'].unique())
-# # array(['과자', '립케어', '아이케어', '라면'], dtype=object)
+parser = argparse.ArgumentParser()
+parser.add_argument('--FILE_PATH','-in')
+parser.add_argument('--EXPORT_PATH','-out')
+parser.add_argument('--FREQ_N','-n', type=int)
+args = parser.parse_args()
+args.FILE_PATH = '../Data/eye_df.csv'
+args.EXPORT_PATH = '../Data/eye_df_count.xlsx'
+args.FREQ_N = 200
 
-# snack_df=review.loc[review['product'] == product_list[0]]
-# lip_df=review.loc[review['product'] == product_list[1]]
-# eye_df=review.loc[review['product'] == product_list[2]]
-# ramen_df=review.loc[review['product'] == product_list[3]]
-# lip_df.head()
-
-# #%%
-# snack_df.to_csv('../Data/snack_df.csv',index=False)
-# lip_df.to_csv('../Data/lip_df.csv',index=False)
-# eye_df.to_csv('../Data/eye_df.csv',index=False)
-# ramen_df.to_csv('../Data/ramen_df.csv',index=False)
-
-#%%
-# FILE_PATH=args.FILE_PATH
-# EXPORT_PATH=args.EXPORT_PATH
-# FREQ_N=args.FREQ_N
-
-def myprint(FILE_PATH,EXPORT_PATH,FREQ_N):
-    print(FILE_PATH,EXPORT_PATH,FREQ_N)
-    print(pd.read_csv(Path(FILE_PATH)))
-    return
-
-#%%
 def f0001(FILE_PATH, EXPORT_PATH, FREQ_N=200):
     # Read Review File
     #  FILE_PATH = '../Data/BabyProducts/MilkPowder/분유.csv'
@@ -43,8 +22,8 @@ def f0001(FILE_PATH, EXPORT_PATH, FREQ_N=200):
     N_review = len(review)
     token_ls = []
     
-    # for i in range(2080,2083):
-    for i in range(N_review):
+    for i in range(2080,2083):
+    # for i in range(N_review):
         # print(i)
         body = review['body'][i]
         if pd.isna(body):
@@ -68,13 +47,5 @@ def f0001(FILE_PATH, EXPORT_PATH, FREQ_N=200):
 
 
  
-
-
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--FILE_PATH','-in')
-    parser.add_argument('--EXPORT_PATH','-out')
-    parser.add_argument('--FREQ_N','-n', type=int)
-    args = parser.parse_args()
-
     f0001(args.FILE_PATH,args.EXPORT_PATH,args.FREQ_N)
